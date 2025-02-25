@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgTips"
+        android:layout_width="410sp"
+        android:layout_height="320sp"
+        android:contentDescription="Imagem com os amigos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_calculate"
+        android:visibility="visible"
+        app:srcCompat="@drawable/tips" />
+
+    <TextView
+        android:id="@+id/tvMarqueGorjeta"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_marginEnd="-30dp"
+        android:layout_marginBottom="-10dp"
+        android:background="#1DE9B6"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:text="Marque a gorjeta"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/rg_parcentage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/number_person"
+        app:layout_constraintTop_toBottomOf="@+id/til_total" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -10,67 +45,98 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.55" />
 
     <View
         android:id="@+id/guideline_view"
-        android:layout_width="2dp"
+        android:layout_width="3dp"
         android:layout_height="0dp"
-        android:background="#12DCC9"
+        android:background="#009688"
         android:visibility="gone"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="@id/til_total"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_view_a"
+        app:layout_constraintBottom_toBottomOf="@id/tvResultado"
         app:layout_constraintStart_toStartOf="@id/guideline" />
 
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_h"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.55" />
 
 
     <View
         android:id="@+id/guideline_view_h"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
         android:layout_margin="16dp"
         android:layout_marginStart="16dp"
-        android:background="#12DCC9"
-        android:visibility="gone"
+        android:background="#1DE9B6"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/rg_parcentage"
         app:layout_constraintTop_toBottomOf="@+id/rg_parcentage"
         app:layout_constraintVertical_bias="0.0" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+
+    <View
+        android:id="@+id/guideline_view_a"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_margin="16dp"
+        android:background="#009688"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/til_total"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintVertical_bias="0.182" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:visibility="visible"
         android:text="Gorjeta na Mesa"
         android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/til_total"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_view_a"
+        app:layout_constraintStart_toStartOf="@+id/guideline_view_a"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_total"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="#02B483"
+        app:layout_constraintBottom_toTopOf="@+id/rg_parcentage"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="numberDecimal"
-            android:hint="Digite o valor total da sua conta:" />
+            android:hint="Valor total?"
+            android:background="#009688"
+           android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -78,6 +144,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="#02B483"
+        app:layout_constraintBottom_toTopOf="@+id/rg_parcentage"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_total">
@@ -85,37 +153,78 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="numberDecimal"
-            android:hint="Digite o numero de pessoas na mesa:" />
+            android:background="#009688"
+            android:hint="Quantas Pessoas?"
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
         android:id="@+id/rg_parcentage"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="#1DE9B6"
+        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number_person">
+        app:layout_constraintTop_toTopOf="@+id/guideline_h">
 
         <RadioButton
             android:id="@+id/rb_option_one"
-            android:layout_width="wrap_content"
+            android:layout_width="61dp"
+            android:textStyle="italic"
             android:layout_height="wrap_content"
-            android:text="10%" />
+            android:background="#009688"
+            android:text="2%"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/rb_option_two"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="15%"/>
+            android:textStyle="italic"
+            android:background="#009688"
+            android:text="3%"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/rb_option_three"
-            android:layout_width="wrap_content"
+            android:layout_width="61dp"
             android:layout_height="wrap_content"
-            android:text="25%"/>
+            android:textStyle="italic"
+            android:background="#009688"
+            android:text="5%"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_option_four"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:background="#009688"
+            android:text="10%"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_option_five"
+            android:layout_width="65dp"
+            android:textStyle="italic"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:text="15%"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_option_six"
+            android:layout_width="62dp"
+            android:textStyle="italic"
+            android:layout_height="wrap_content"
+            android:background="#1DE9B6"
+            android:text="20%"
+            android:textColor="@color/white" />
     </RadioGroup>
 
     <Button
@@ -124,76 +233,110 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="172dp"
+        android:backgroundTint="#009688"
         android:text="Limpar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_view_h" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline_view_h"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="92dp"
+        android:backgroundTint="#009688"
         android:text="Calcular"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_clean"
-        app:layout_constraintTop_toBottomOf="@id/guideline_view_h" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline_view_h"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_slideBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginBottom="136dp"
+        android:backgroundTint="#009688"
         android:text="Voltar"
-        android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@id/guideline_view"
-        app:layout_constraintTop_toBottomOf="@id/guideline_view_h"
-        />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toEndOf="@+id/btn_calculate"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_view_h"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
         android:text="R$ 0.00"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:gravity="left"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/btn_slideBack"
-        app:layout_constraintStart_toStartOf="@id/guideline_view"
-        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/rg_parcentage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/number_person"/>
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/number_person" />
 
     <TextView
         android:id="@+id/tvValor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
         android:text="R$ 0.00"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:gravity="left"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/btn_slideBack"
-        app:layout_constraintStart_toStartOf="@id/guideline_view"
-        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/number_person"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_title"/>
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvPessoas"
+        app:layout_constraintVertical_bias="0.556" />
 
     <TextView
         android:id="@+id/tvPessoas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
         android:text="P:0"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:gravity="left"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/btn_slideBack"
-        app:layout_constraintStart_toStartOf="@id/guideline_view"
+        app:layout_constraintBottom_toBottomOf="@+id/til_total"
+        app:layout_constraintEnd_toEndOf="@+id/tvValor"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@+id/tvValor"
+        app:layout_constraintTop_toTopOf="@+id/til_total"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/titleLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:gravity="center"
+        android:background="#009688"
+        android:text="Gastos da Mesa"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvPessoas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/til_total"/>
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/til_total"
+        app:layout_constraintStart_toStartOf="@id/guideline_view"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_view_a" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
